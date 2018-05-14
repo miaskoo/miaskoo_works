@@ -1,0 +1,460 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+void ClearScreen()
+  {
+  HANDLE                     hStdOut;
+  CONSOLE_SCREEN_BUFFER_INFO csbi;
+  DWORD                      count;
+  DWORD                      cellCount;
+  COORD                      homeCoords = { 0, 0 };
+
+  hStdOut = GetStdHandle( STD_OUTPUT_HANDLE );
+  if (hStdOut == INVALID_HANDLE_VALUE) return;
+
+  /* Get the number of cells in the current buffer */
+  if (!GetConsoleScreenBufferInfo( hStdOut, &csbi )) return;
+  cellCount = csbi.dwSize.X *csbi.dwSize.Y;
+
+  /* Fill the entire buffer with spaces */
+  if (!FillConsoleOutputCharacter(
+    hStdOut,
+    (TCHAR) ' ',
+    cellCount,
+    homeCoords,
+    &count
+    )) return;
+
+  /* Fill the entire buffer with the current colors and attributes */
+  if (!FillConsoleOutputAttribute(
+    hStdOut,
+    csbi.wAttributes,
+    cellCount,
+    homeCoords,
+    &count
+    )) return;
+
+  /* Move the cursor home */
+  SetConsoleCursorPosition( hStdOut, homeCoords );
+  }
+
+
+
+
+
+int main()
+{
+string a1,a2,a3,b1,b2,b3,c1,c2,c3;
+a1="[ ]";
+a2="[ ]";
+a3="[ ]";
+b1="[ ]";
+b2="[ ]";
+b3="[ ]";
+c1="[ ]";
+c2="[ ]";
+c3="[ ]";
+bool Turn;
+int Oturn,Xturn;
+string xO,xX;
+Oturn=1;
+Xturn=0;
+string WIN;
+int end;
+end=0;
+do
+{
+	
+Turn = Oturn>Xturn;
+
+
+
+
+
+
+
+
+
+
+
+ClearScreen();
+cout
+<< "   " << " 1 " << " 2 " << " 3 " << endl  
+<< " a " << a1 << a2 << a3 << endl 
+<< " b " << b1 << b2 << b3 << endl 
+<< " c " << c1 << c2 << c3 << endl;
+if (Turn==true) // LOG O
+	{	 
+	cout << "Turn O" << endl;
+	cin >> xO;
+	if (xO=="a1")
+	{
+		if(a1=="[ ]")
+		{
+		a1="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xO=="a2")
+	{
+		if(a2=="[ ]")
+		{		
+		a2="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}		
+	}
+	
+	if (xO=="a3")
+	{
+		if(a3=="[ ]")
+		{		
+		a3="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}			
+	}
+	
+	if (xO=="b1")
+	{
+		if(b1=="[ ]")
+		{
+		b1="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xO=="b2")
+	{
+		if(b2=="[ ]")
+		{		
+		b2="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}		
+	}
+	
+	if (xO=="b3")
+	{
+		if(b3=="[ ]")
+		{		
+		b3="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}			
+	}
+	
+	if (xO=="c1")
+	{
+		if(c1=="[ ]")
+		{
+		c1="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xO=="c2")
+	{
+		if(c2=="[ ]")
+		{		
+		c2="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}		
+	}
+	
+	if (xO=="c3")
+	{
+		if(c3=="[ ]")
+		{		
+		c3="[O]";
+		Xturn=++Xturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}			
+	}
+	
+	}
+else //LOG X
+	{
+	
+	cout << "Turn X" << endl;
+	cin >> xX;
+	if (xX=="a1")
+	{
+		if(a1=="[ ]")
+		{
+		a1="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xX=="a2")
+	{
+		if(a2=="[ ]")
+		{
+		a2="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xX=="a3")
+	{
+		if(a3=="[ ]")
+		{
+		a3="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xX=="b1")
+	{
+		if(b1=="[ ]")
+		{
+		b1="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xX=="b2")
+	{
+		if(b2=="[ ]")
+		{		
+		b2="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}		
+	}
+	
+	if (xX=="b3")
+	{
+		if(b3=="[ ]")
+		{		
+		b3="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}			
+	}
+	
+	if (xX=="c1")
+	{
+		if(c1=="[ ]")
+		{
+		c1="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}
+	}
+	
+	if (xX=="c2")
+	{
+		if(c2=="[ ]")
+		{		
+		c2="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}		
+	}
+	
+	if (xX=="c3")
+	{
+		if(c3=="[ ]")
+		{		
+		c3="[X]";
+		Oturn=++Oturn;
+		}
+		else
+		{
+		cout << "WRONG ADRESS" << endl;
+		}			
+	}
+	
+	}
+	if 
+	(a1 + b1 + c1 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(b1 + b2 + b3 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(c1 + c2 + c3 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(a1 + b1 + c1 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(a2 + b2 + c2 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(a3 + b3 + c3 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(a1 + b2 + c3 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+	if
+	(a3 + b2 + c1 == "[X][X][X]")
+	{
+	cout << "WIN 'X'" << endl;
+	WIN = "X";
+	}
+	
+
+	
+	
+	if 
+	(a1 + a2 + a3 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(b1 + b2 + b3 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(c1 +c2 +c3 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(a1 + b1 + c1 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(a2 + b2 + c2 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(a3 + b3 + c3 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(a1 + b2 + c3 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}
+	
+	if
+	(a3 + b2 + c1 == "[O][O][O]")
+	{
+	cout << "WIN 'O'" << endl;
+	WIN = "O";
+	}	
+	
+	
+	
+	
+	
+	
+	if (WIN == "X")
+	end = 1;
+    if (WIN == "O")
+    end = 1;
+    
+}
+	while (end!=1);
+	
+}
